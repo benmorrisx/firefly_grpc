@@ -66,7 +66,7 @@ ENV db_password_env=$db_password
 RUN cd /tmp && git clone https://github.com/bensanmorris/firefly_grpc.git ffsrv && cd ffsrv && git clone -b v1.26.0 https://github.com/grpc/grpc
 RUN rm -rf /root/.ssh/
 RUN cd /tmp/ffsrv/grpc && git submodule update --init && sed -i 's/-Werror/ /g' Makefile && make && make install
-RUN cd /tmp/ffsrv && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && go get -u github.com/golang/protobuf/protoc-gen-go
+#RUN cd /tmp/ffsrv && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && go get -u github.com/golang/protobuf/protoc-gen-go
 
 # build deps
 ARG BUILD_DEPS
